@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=500" />
+	<meta name="keywords" content="ScrollMagic,acting,dancing,comercial,actress,latino,african-american" />
+	<meta name="author"	content="luseafur" />
+	<title>DomoLoves</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic|Josefin+Slab:400,700italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/normalize.css" type="text/css">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<link rel="stylesheet" href="css/examples.css" type="text/css">
+	<!-- <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"> -->
+
+	<script type="text/javascript" src="js/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="js/lib/highlight.pack.js"></script>
+	<script type="text/javascript" src="js/lib/modernizr.custom.min.js"></script>
+	<!-- <script type="text/javascript" src="js/examples.js"></script> -->
+	
+	<script type="text/javascript" src="js/lib/greensock/TweenMax.min.js"></script>
+	<script type="text/javascript" src="scrollmagic/uncompressed/ScrollMagic.js"></script>
+  <script type="text/javascript" src="scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
+	<script type="text/javascript" src="scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
+
+</head>
+
+<body>
+	<ul id="menu"></ul>
+	<div id="content-wrapper">
+		<!-- <div id="example-wrapper"> -->
+			<div class="scrollContent">
+				<section id="titlechart">
+					<div id="description">
+						<h1>HEADER 1</h1>
+						<h2>HEADER-2</h2>
+						<p>
+							PARAGRAPH
+						</p>
+					</div>
+				</section>
+				<section class="demo">
+					<style type="text/css">
+						.parallaxParent {
+							width: 100%;
+							height: 100vw;
+							overflow: hidden;
+						}
+						.parallaxParent > * {
+							height: 200%;
+							position: relative;
+							top: -100%;
+						}
+					</style>
+					<div class="spacer s0"></div>
+					<div id="parallax2" class="parallaxParent">
+						<div style="background-image: url(img/image18.png);"></div>
+					</div>
+					<div class="spacer s1">
+						<div class="box2 blue">
+							<p>CONTENT 1</p>
+							<!-- <a href="#" class="viewsource">view source</a> -->
+						</div>
+					</div>
+					<div class="spacer s0"></div>
+					<div id="parallax2" class="parallaxParent">
+						<div style="background-image: url(img/example_parallax_bg2.png);"></div>
+					</div>
+					<div class="spacer s1">
+						<div class="box2 blue">
+							<p>Content 2</p>
+							<a href="#" class="viewsource">view source</a>
+						</div>
+					</div>
+					<div class="spacer s0"></div>
+					<div id="parallax3" class="parallaxParent">
+						<div style="background-image: url(img/example_parallax_bg3.png);"></div>
+					</div>
+					<div class="spacer s2"><section class="demo dynamicContent">
+					<div id="content">
+						
+					</div>
+					<div id="loader">
+						<img src="img/example_loading.gif">
+						LOADING...
+					</div>
+					<script>
+						// init controller
+						var controller = new ScrollMagic.Controller();
+
+						// build scene
+						var scene = new ScrollMagic.Scene({triggerElement: ".dynamicContent #loader", triggerHook: "onEnter"})
+										.addTo(controller)
+										.on("enter", function (e) {
+											if (!$("#loader").hasClass("active")) {
+												$("#loader").addClass("active");
+												if (console){
+													console.log("loading new items");
+												}
+												// simulate ajax call to add content using the function below
+												setTimeout(addBoxes, 1000, 9);
+											}
+										});
+
+						// pseudo function to add new content. In real life it would be done through an ajax request.
+						function addBoxes (amount) {
+							for (i=1; i<=amount; i++) {
+								var randomColor = '#'+('00000'+(Math.random()*0xFFFFFF<<0).toString(16)).slice(-6);
+								$("<div></div>")
+									.addClass("box1")
+									.css("background-color", randomColor)
+									.appendTo(".dynamicContent #content");
+							}
+							// "loading" done -> revert to normal state
+							scene.update(); // make sure the scene gets the new start position
+							$("#loader").removeClass("active");
+						}
+
+						// add some boxes to start with.
+						addBoxes(18);
+					</script>
+				</section></div>
+					<script>
+						// init controller
+						var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", duration: "200%"}});
+
+						// build scenes
+						new ScrollMagic.Scene({triggerElement: "#parallax1"})
+										.setTween("#parallax1 > div", {y: "80%", ease: Linear.easeNone})
+										.addIndicators()
+										.addTo(controller);
+
+						new ScrollMagic.Scene({triggerElement: "#parallax2"})
+										.setTween("#parallax2 > div", {y: "80%", ease: Linear.easeNone})
+										.addIndicators()
+										.addTo(controller);
+
+						new ScrollMagic.Scene({triggerElement: "#parallax3"})
+										.setTween("#parallax3 > div", {y: "80%", ease: Linear.easeNone})
+										.addIndicators()
+										.addTo(controller);
+					</script>
+				</section>
+				<div class="spacer s_viewport"></div>
+			</div>
+		</div>
+		<div class="scrollContent">
+				
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/tracking.js"></script>
+</body>
+</html>

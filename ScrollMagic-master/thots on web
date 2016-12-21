@@ -1,0 +1,52 @@
+RG WEB APP:
+	horizontal scrolling - single page:
+			~9 panes on horizontal axis
+
+			menu = 1 panes (save+help+user_info) (half pane on web?)
+
+			{RAPGOD Title} (90 deg rotated) = 1/3 pane width
+
+
+			text box  = 1 pane {we'll give you our textbox code - ???}
+			- [panes snap to available screen size - note that on iOS the keyboard does not reduce screen height - trick may be to open on cursor]
+				+ GENerate button {calls to seconbrain_server}
+				+ RHYme button {calls to seconbrain_server}
+				+ undo button (unlimited undoes would be dopppppppe)
+
+			verse heat index = meter that shows number returned from secondbrain_serv after each new line - uses a color gradient in some {svg container - or maybe RAPGOD title}
+
+			brain box = 1 pane (half pane on web?) - contains a bunch of svgs linked to model+/-pos_thots/neg_thots + should be called from some json lib pointing to all the files, models, pos_thots/neg_thots
+			
+			save pane = local+cloud save
+
+			user info = 1 panes (username - location - description - subscription)
+				+  {user agreement} pop up
+
+			help info = 1 pane - {some text} and option to bring refresh help context
+
+			contact us = {links and such}
+
+	Constand 2px shaded screen border, does not move when pannels move - think Blinky <the free osx app>
+
+	Gif Overlays:
+		secondbrain intro gif (click through allowed) - play 1x
+		rapgod intro gif (click through disabled) - play 1x
+		intro to rg gif (x outable) - play 1x
+		make them click in the box
+		make them type
+		make them generate
+		make them rhyme
+		make them click a brain 
+		and rhyme
+
+	code comments:
+		anything that obvs need description
+		titles
+		source of code/idea
+		good ideas not used
+		future thoughts on feature
+	
+
+
+
+
