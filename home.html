@@ -1,0 +1,302 @@
+
+<html>
+<head>
+
+<title>Domo Loves
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="css/style.css?0002"/>
+<link rel="stylesheet" href="css/blueimp-gallery.css">
+<link rel="stylesheet" href="css/blueimp-gallery-indicator.css">
+<!-- <link rel="stylesheet" href="css/blueimp-gallery-video.css">
+<link rel="stylesheet" href="css/demo/demo.css"> -->
+</head>
+<body>
+<div class="ScrollWrapper">
+<header class="Header js-HasVH" data-vh="0.75">
+<nav>
+<a class="Nav-link" href="#about">
+<span>About
+</span>
+</a>
+<a class="Nav-link" href="#work">
+<span>Work
+</span>
+</a>
+<a class="Nav-link" href="#contact">
+<span>Contact
+</span>
+</a>
+</nav>
+
+  <div class="Scene">
+    <div class="Scene-sky" role="presentation">
+    </div>
+    <canvas class="Scene-stars" role="presentation">
+    </canvas>
+    <canvas class="Scene-mountains" data-stop-on-scroll="true" role="presentation">
+    </canvas>
+  </div>
+<h1 class="Title">
+  <span class="Title-big Title-Center" aria-label="Domo Loves">
+  <span class="Title-Center-left" aria-hidden="true">Domo
+  </span>
+  <span class="Title-Center-right" aria-hidden="true">Loves
+  </span>
+  </span>
+  <span class="Title-small Title-Center" aria-label="Creative Performer">
+  <span class="Title-Center-left" aria-hidden="true">Creative
+  </span>
+  <span class="Title-Center-right" aria-hidden="true">Performer
+  </span>
+  </span>
+<div class="Title-separator js-Lazyload" role="presentation" data-image="img/separator-green.svg">
+</div>
+</h1>
+</header>
+<main>
+<div class="container">
+<section>
+<h2 id="about">About
+</h2>
+<p class="heading">performing performing
+</p>
+<p>focusing on focusing
+</p>
+<p><b> Based in Austin - Texas.</b>
+</p>
+</section>
+<section>
+  <h2 id="work">Work
+  </h2>
+    <div class="Works">
+      <!-- <article class="Work">
+        <div class="Work-text">
+          <h3 class="Work-title">Hair
+            <div class="Work-subtitle">hairy
+            </div>
+          </h3>
+        </div>
+        <a href="http://domoloves.co/hair">
+          <figure class="Work-image js-Lazyload" data-image="http://domoloves.co/img/1.JPG" data-hires="true" role="presentation">
+          </figure>
+        </a>
+      </article> -->
+      <!-- The Gallery as inline carousel, can be positioned anywhere on the page -->
+      <!-- <div id="links">
+        <a href="http://domoloves.co/img/1.JPG" title="Banana">
+            <img src="http://domoloves.co/img/1.JPG" alt="Banana">
+        </a>
+        <a href="http://domoloves.co/img/2.JPG" title="Apple">
+            <img src="http://domoloves.co/img/2.JPG" alt="Apple">
+        </a>
+        <a href="http://domoloves.co/img/3.JPG" title="Orange">
+            <img src="http://domoloves.co/img/3.JPG" alt="Orange">
+        </a>
+      </div> -->
+
+
+      <div id="blueimp-gallery-carousel" class="blueimp-gallery blueimp-gallery-carousel">
+          <div class="slides"></div>
+          <h3 class="title"></h3>
+          <a class="prev">‹</a>
+          <a class="next">›</a>
+          <a class="play-pause"></a>
+          <ol class="indicator"></ol>
+      </div>
+
+    <script src="js/blueimp-gallery.min.js"></script>
+    <!-- <script src="js/blueimp-helper.js"></script>
+    <script src="js/blueimp-gallery.js"></script>
+    <script src="js/blueimp-gallery-fullscreen.js"></script>
+    <script src="js/blueimp-gallery-indicator.js"></script> -->
+    <!-- <script src="js/blueimp-gallery-video.js"></script>
+    <script src="js/blueimp-gallery-vimeo.js"></script>
+    <script src="js/blueimp-gallery-youtube.js"></script> -->
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/jquery.blueimp-gallery.js"></script>
+    <script src="js/demo/demo.js"></script>
+
+
+
+</section>
+
+<footer>
+<h2 id="contact">Contact
+</h2>
+<div class="text-center">
+<div class="Contact-heading">You can drop me a line at
+</div>
+<a class="Email Footer-link">
+<strong>DomoLoves
+</strong> at
+<strong>gmail
+</strong> dot com
+</a>
+  <!-- <div class="Contact-heading">You can find me on
+  </div>
+  <div class="Social">
+  <a class="Footer-link Social-link" href="http://codepen.io/lLoves">
+  <strong>codepen
+  </strong>.io/
+  <strong>lLoves
+  </strong>
+  </a>
+  <br/>
+  <a class="Footer-link Social-link" href="http://twitter.com/DomoLoves">
+  <strong>twitter
+  </strong>.com/
+  <strong>DomoLoves
+  </strong>
+  </a>
+  <br/>
+  <a class="Footer-link Social-link" href="http://dribbble.com/lLoves">
+  <strong>dribbble
+  </strong>.com/
+  <strong>lLoves
+  </strong>
+  </a>
+  </div>
+  </div> -->
+</footer>
+</div>
+</main>
+<div class="Scene--bottom">
+<canvas class="Scene-mountains Scene-mountains--bottom">
+</canvas>
+</div>
+</div>
+
+  <script id="vs" type="x-shader/vertex">attribute vec3 position;void main(){gl_Position=vec4(position,1.0);}
+
+  </script>
+
+
+  <script id="fs" type="x-shader/fragment">uniform float t;
+  uniform float s;
+  uniform float sunSize;
+  uniform vec2 r;
+  uniform sampler2D i;
+
+  float power(float value,float p){
+    float f=floor(value);
+    float r=value-f;
+    if(r>0.5){
+      r=(r*2.0)-1.0;
+      r=pow(r,1.0/p);
+      r=(r/2.0)+0.5;
+    }else{
+      r*=2.0;
+      r=pow(r,p);
+      r/=2.0;
+    }
+    return r+f;
+  }
+  vec3 getDisplacement(float dist){
+    float global=(dist*6.0)-t*0.9;
+    float distortion=(sin(global*2.0-(t*0.5))+1.0)*0.55;
+    float distorted=global-(distortion*0.45);
+    float local=distorted-floor(distorted);
+    float stripedDistance=mod(local*4.0,1.0);
+    float striped=(power(local*4.0,12.0)+-0.4)/4.0;
+    return vec3(striped,stripedDistance,local);
+  }
+  void main(){
+    vec2 pos=gl_FragCoord.xy/r;
+    pos.y-=0.5/r.y;
+    pos=vec2(pos.x,1.0-pos.y);
+    if(pos.y>0.5){
+      float dist=(pos.y-0.5)/0.5;
+      vec3 displacement=getDisplacement(dist);
+      float w=displacement.x;
+      pos.y+=w*0.35*dist*s;
+    }else{
+      float sunDistance=(sunSize/r.x)*0.75;
+      float falloff=2.5;
+      falloff=1.0+falloff;
+      float p=1.0-(abs(pos.x-0.5)/(sunDistance*falloff));
+      if(p>0.0){
+        float cutoff=1.0-(1.0/falloff);
+        if(p>cutoff){
+          p=1.0;
+        }else{
+          p=(p/cutoff);
+          p=pow(p,2.0);
+          p*=0.2;
+        }
+        pos.x+=sin((t*7.0)+(pos.y*150.0))*(sunDistance*0.1)*p*s;
+      }
+    }
+    vec4 textureColor=texture2D(i,pos);
+    float a=textureColor.a;
+    if(a
+  <1.0){
+      vec3 matte=vec3(1.0,0.92,0.85);
+      float a2=a*1.0;
+      float sunDistance=(sunSize/r.x)*0.85;
+      float p=1.0-(abs(pos.x-0.5)/sunDistance);
+      if(p>0.0){
+        a2=a*0.0;
+      }
+      textureColor=vec4((textureColor.rgb*a2)+(matte*(1.0-a2)),a);
+    }
+    gl_FragColor=vec4(textureColor.rgb*textureColor.a,textureColor.a);
+  }
+  </script>
+  <script src="js/main.js?0003">
+  </script>
+
+
+
+</body>
+<div id="linkslinks" style="display: none;">  <!-- style="display: none;" -->
+  <a href="http://domoloves.co/img/1.PNG" title="">
+      <img src="http://domoloves.co/img/1.PNG" alt="">
+  <a href="http://domoloves.co/img/2.JPG" title="">
+      <img src="http://domoloves.co/img/2.JPG" alt="">
+  </a>
+  <a href="http://domoloves.co/img/3.JPG" title="">
+      <img src="http://domoloves.co/img/3.JPG" alt="">
+  </a>
+  <a href="http://domoloves.co/img/4.JPG" title="">
+      <img src="http://domoloves.co/img/4.JPG" alt="">
+  </a>
+  <a href="http://domoloves.co/img/5.JPG" title="">
+      <img src="http://domoloves.co/img/5.JPG" alt="">
+  </a>
+  <a href="http://domoloves.co/img/6.JPG" title="">
+      <img src="http://domoloves.co/img/6.JPG" alt="">
+  </a>
+  <a href="http://domoloves.co/img/7.JPG" title="">
+      <img src="http://domoloves.co/img/7.JPG" alt="">
+  </a>
+  <a href="http://domoloves.co/img/8.PNG" title="">
+      <img src="http://domoloves.co/img/8.PNG" alt="">
+  </a>
+  <a href="http://domoloves.co/img/9.JPG" title="">
+      <img src="http://domoloves.co/img/9.JPG" alt="">
+  </a>
+  <a href="http://domoloves.co/img/10.PNG" title="">
+      <img src="http://domoloves.co/img/10.PNG" alt="">
+  </a>
+  <a href="http://domoloves.co/img/11.PNG" title="">
+      <img src="http://domoloves.co/img/11.PNG" alt="">
+  </a>
+  <a href="http://domoloves.co/img/12.PNG" title="">
+      <img src="http://domoloves.co/img/12.PNG" alt="">
+  </a>
+  <a href="http://domoloves.co/img/13.PNG" title="">
+      <img src="http://domoloves.co/img/13.PNG" alt="">
+  </a>
+</div>
+
+<script>
+blueimp.Gallery(
+    document.getElementById('linkslinks').getElementsByTagName('a'),
+    {
+        container: '#blueimp-gallery-carousel',
+        carousel: true
+    }
+);
+</script>
+</html>
